@@ -59,23 +59,23 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: |
-            immortalwrt/rootfs:${{ github.event.inputs.arch }}-${{ github.event.inputs.branch }}
-            immortalwrt/rootfs:${{ github.event.inputs.arch }}-${{ github.event.inputs.version }}
-            immortalwrt/rootfs:${{ github.event.inputs.target }}-${{ github.event.inputs.branch }}
-            immortalwrt/rootfs:${{ github.event.inputs.target }}-${{ github.event.inputs.version }}
+            gustavo8000br/rootfs:${{ github.event.inputs.arch }}-${{ github.event.inputs.branch }}
+            gustavo8000br/rootfs:${{ github.event.inputs.arch }}-${{ github.event.inputs.version }}
+            gustavo8000br/rootfs:${{ github.event.inputs.target }}-${{ github.event.inputs.branch }}
+            gustavo8000br/rootfs:${{ github.event.inputs.target }}-${{ github.event.inputs.version }}
 
       - name: Push extra tags for snapshot
         if: ${{ github.event.inputs.version == 'snapshot' }}
         run: |
-          docker tag immortalwrt/rootfs:${{ github.event.inputs.target }}-${{ github.event.inputs.version }} immortalwrt/rootfs:${{ github.event.inputs.arch }}
-          docker tag immortalwrt/rootfs:${{ github.event.inputs.target }}-${{ github.event.inputs.version }} immortalwrt/rootfs:${{ github.event.inputs.target }}
-          docker push immortalwrt/rootfs:${{ github.event.inputs.arch }}
-          docker push immortalwrt/rootfs:${{ github.event.inputs.target }}
+          docker tag gustavo8000br/rootfs:${{ github.event.inputs.target }}-${{ github.event.inputs.version }} gustavo8000br/rootfs:${{ github.event.inputs.arch }}
+          docker tag gustavo8000br/rootfs:${{ github.event.inputs.target }}-${{ github.event.inputs.version }} gustavo8000br/rootfs:${{ github.event.inputs.target }}
+          docker push gustavo8000br/rootfs:${{ github.event.inputs.arch }}
+          docker push gustavo8000br/rootfs:${{ github.event.inputs.target }}
 
       - name: Push extra tags for x86-64
         if: ${{ github.event.inputs.target == 'x86-64' }}
         run: |
-          docker tag immortalwrt/rootfs:${{ github.event.inputs.target }}-${{ github.event.inputs.version }} immortalwrt/rootfs:${{ github.event.inputs.branch }}
-          docker tag immortalwrt/rootfs:${{ github.event.inputs.target }}-${{ github.event.inputs.version }} immortalwrt/rootfs:${{ github.event.inputs.version }}
-          docker push immortalwrt/rootfs:${{ github.event.inputs.branch }}
-          docker push immortalwrt/rootfs:${{ github.event.inputs.version }}
+          docker tag gustavo8000br/rootfs:${{ github.event.inputs.target }}-${{ github.event.inputs.version }} gustavo8000br/rootfs:${{ github.event.inputs.branch }}
+          docker tag gustavo8000br/rootfs:${{ github.event.inputs.target }}-${{ github.event.inputs.version }} gustavo8000br/rootfs:${{ github.event.inputs.version }}
+          docker push gustavo8000br/rootfs:${{ github.event.inputs.branch }}
+          docker push gustavo8000br/rootfs:${{ github.event.inputs.version }}

@@ -68,5 +68,5 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: |
-            immortalwrt/imagebuilder:${{ github.event.inputs.target }}-${{ github.event.inputs.branch }}
-            immortalwrt/imagebuilder:${{ github.event.inputs.target }}-${{ github.event.inputs.version }}
+            gustavo8000br/imagebuilder:${{ github.event.inputs.target }}-${{ github.event.inputs.branch }}
+            gustavo8000br/imagebuilder:${{ github.event.inputs.target }}-${{ github.event.inputs.version }}

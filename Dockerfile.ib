@@ -1,4 +1,4 @@
-FROM immortalwrt:base
+FROM gustavo8000br:base
 
 LABEL maintainer="Tianling Shen <cnsztl@immortalwrt.org>"
 

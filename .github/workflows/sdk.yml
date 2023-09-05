@@ -98,28 +98,28 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: |
-            immortalwrt/sdk:${{ matrix.targets }}-${{ github.event.inputs.branch }}
-            immortalwrt/sdk:${{ matrix.targets }}-${{ github.event.inputs.version }}
+            gustavo8000br/sdk:${{ matrix.targets }}-${{ github.event.inputs.branch }}
+            gustavo8000br/sdk:${{ matrix.targets }}-${{ github.event.inputs.version }}
 
       - name: Push extra tags for architecture
         run: |
-          docker tag immortalwrt/sdk:${{ matrix.targets }}-${{ github.event.inputs.version }} "immortalwrt/sdk:$SDK_ARCH-${{ github.event.inputs.branch }}"
-          docker tag immortalwrt/sdk:${{ matrix.targets }}-${{ github.event.inputs.version }} "immortalwrt/sdk:$SDK_ARCH-${{ github.event.inputs.version }}"
-          docker push "immortalwrt/sdk:$SDK_ARCH-${{ github.event.inputs.branch }}"
-          docker push "immortalwrt/sdk:$SDK_ARCH-${{ github.event.inputs.version }}"
+          docker tag gustavo8000br/sdk:${{ matrix.targets }}-${{ github.event.inputs.version }} "gustavo8000br/sdk:$SDK_ARCH-${{ github.event.inputs.branch }}"
+          docker tag gustavo8000br/sdk:${{ matrix.targets }}-${{ github.event.inputs.version }} "gustavo8000br/sdk:$SDK_ARCH-${{ github.event.inputs.version }}"
+          docker push "gustavo8000br/sdk:$SDK_ARCH-${{ github.event.inputs.branch }}"
+          docker push "gustavo8000br/sdk:$SDK_ARCH-${{ github.event.inputs.version }}"
 
       - name: Push extra tags for snapshot
         if: ${{ github.event.inputs.version == 'snapshot' }}
         run: |
-          docker tag immortalwrt/sdk:${{ matrix.targets }}-${{ github.event.inputs.version }} "immortalwrt/sdk:$SDK_ARCH"
-          docker tag immortalwrt/sdk:${{ matrix.targets }}-${{ github.event.inputs.version }} immortalwrt/sdk:${{ matrix.targets }}
-          docker push "immortalwrt/sdk:$SDK_ARCH"
-          docker push immortalwrt/sdk:${{ matrix.targets }}
+          docker tag gustavo8000br/sdk:${{ matrix.targets }}-${{ github.event.inputs.version }} "gustavo8000br/sdk:$SDK_ARCH"
+          docker tag gustavo8000br/sdk:${{ matrix.targets }}-${{ github.event.inputs.version }} gustavo8000br/sdk:${{ matrix.targets }}
+          docker push "gustavo8000br/sdk:$SDK_ARCH"
+          docker push gustavo8000br/sdk:${{ matrix.targets }}
 
       - name: Push extra tags for x86-64
         if: ${{ matrix.targets == 'x86-64' }}
         run: |
-          docker tag immortalwrt/sdk:${{ matrix.targets }}-${{ github.event.inputs.version }} immortalwrt/sdk:${{ github.event.inputs.branch }}
-          docker tag immortalwrt/sdk:${{ matrix.targets }}-${{ github.event.inputs.version }} immortalwrt/sdk:${{ github.event.inputs.version }}
-          docker push immortalwrt/sdk:${{ github.event.inputs.branch }}
-          docker push immortalwrt/sdk:${{ github.event.inputs.version }}
+          docker tag gustavo8000br/sdk:${{ matrix.targets }}-${{ github.event.inputs.version }} gustavo8000br/sdk:${{ github.event.inputs.branch }}
+          docker tag gustavo8000br/sdk:${{ matrix.targets }}-${{ github.event.inputs.version }} gustavo8000br/sdk:${{ github.event.inputs.version }}
+          docker push gustavo8000br/sdk:${{ github.event.inputs.branch }}
+          docker push gustavo8000br/sdk:${{ github.event.inputs.version }}
